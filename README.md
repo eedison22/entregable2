@@ -12,7 +12,7 @@ rm -rf .git
 
 En windows cmd:
 ```cmd
-RD /S <carpeta>
+RD /S .git
 ```
 
 En windows powershell
