@@ -13,23 +13,23 @@ const App = () => {
     'https://cdn.pixabay.com/photo/2016/06/25/17/36/rain-1479303_960_720.jpg',
     'https://media.istockphoto.com/id/531174219/es/foto/n%C3%ADvea-alley-en-la-ma%C3%B1ana.jpg?s=1024x1024&w=is&k=20&c=gW-NUStxpyMHQmR_-B4hDsx9tAXczgjG-tmedFNAox4=',
     'https://cdn.pixabay.com/photo/2016/07/22/16/29/fog-1535201_960_720.jpg',
-    "https://cdn.pixabay.com/photo/2017/03/29/15/18/tianjin-2185510_960_720.jpg"
+    'https://cdn.pixabay.com/photo/2017/03/29/15/18/tianjin-2185510_960_720.jpg',
   ];
 
-  const changeImage = () => {
-    if (`${weather?.weather[0].main === 'Clouds'}`) {
-      setBackground(1);
-    } else if (`${weather?.weather[0].main === 'Clear'}`) {
+  const changeImage = (weather) => {
+    if (weather?.weather[0].main === 'Clear') {
       setBackground(0);
-    } else if (`${weather?.weather[0].main === 'Thunderstorm'}`) {
+    } else if (weather?.weather[0].main === 'Clouds') {
+      setBackground(1);
+    } else if (weather?.weather[0].main === 'Thunderstorm') {
       setBackground(2);
-    } else if (`${weather?.weather[0].main === 'Drizzle'}`) {
+    } else if (weather?.weather[0].main === 'Drizzle') {
       setBackground(3);
-    } else if (`${weather?.weather[0].main === 'Rain'}`) {
+    } else if (weather?.weather[0].main === 'Rain') {
       setBackground(4);
-    } else if (`${weather?.weather[0].main === 'Snow'}`) {
+    } else if (weather?.weather[0].main === 'Snow') {
       setBackground(5);
-    } else if (`${weather?.weather[0].main === 'Mist'}`) {
+    } else if (weather?.weather[0].main === 'Mist') {
       setBackground(6);
     } else {
       setBackground(7);
@@ -64,7 +64,9 @@ const App = () => {
       className="h-full flex flex-col justify-center items-center p-10 text-black body-font font-lato bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${image[background]})` }}
     >
-      <h1 className="mb-5 text-4xl indent-1 rounded-2xl p-4 bg-white opacity-50">{weather?.name}</h1>
+      <h1 className="mb-5 text-4xl indent-1 rounded-2xl p-4 bg-white opacity-50">
+        {weather?.name}
+      </h1>
       <div className="flex flex-wrap gap-5">
         <div className="flex-col border p-4 rounded-2xl bg-white opacity-90">
           <div className="flex flex-row place-content-evenly gap-5">
